@@ -16,6 +16,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, QLGesDirect) {
+    QLGesDirectHorizontal,
+    QLGesDirectVertical,
+};
+
 @protocol VideoPlayerDelegate <NSObject>
 
 - (void)getControllerItem: (AVPlayerItem *)player;
@@ -24,10 +29,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VideoPlayerView: UIView
 @property(nonatomic) BOOL isFullScreen;
+@property(nonatomic) BOOL isPlay;
+@property(nonatomic) CGFloat sumTime;
+@property(nonatomic) BOOL isVolume;
 @property(nonatomic, strong) AVPlayerItem *playerItem;
 @property(nonatomic, weak) UIView *bottomView;
-//@property(nonatomic, weak) UIB
+@property(nonatomic, weak) UIButton *playButton;
 @property(nonatomic, weak) UISlider *progress;
+@property(nonatomic, weak) UIButton *fullScreenButton;
+@property(nonatomic, weak) UISlider *volumeSlider;
+
+@property(nonatomic) QLGesDirect gesDirect;
 
 - (void)loadWithPlayer:(AVPlayerItem *)player;
 @end
