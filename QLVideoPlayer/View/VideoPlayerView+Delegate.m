@@ -108,8 +108,10 @@
 }
 
 - (void)onFsBtnClicked:(id)sender {
-//    _isFullScreen = !_isFullScreen;
-    NSLog(@"full screen clicked");
+    _isFullScreen = !_isFullScreen;
+    if([self.delegate respondsToSelector:@selector(videoPlayerView:clickFullScreenBtn:)]) {
+        [self.delegate videoPlayerView:self clickFullScreenBtn:_isFullScreen];
+    }
 }
 
 - (void)loadWithPlayer:(AVPlayerItem *)player {

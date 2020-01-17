@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (weak, nonatomic) IBOutlet UIButton *playOrPause;
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
+@property (nonatomic) CGRect originFrame;
 @end
 
 NS_ASSUME_NONNULL_END

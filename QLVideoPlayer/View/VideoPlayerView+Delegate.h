@@ -21,13 +21,16 @@ typedef NS_ENUM(NSInteger, QLGesDirect) {
     QLGesDirectVertical,
 };
 
+@class VideoPlayerView;
+
 @protocol VideoPlayerDelegate <NSObject>
 
-- (void)getControllerItem: (AVPlayerItem *)player;
-
+//- (void)getControllerItem: (AVPlayerItem *)player;
+- (void)videoPlayerView:(VideoPlayerView *)videoPlayerView clickFullScreenBtn: (BOOL) isFullScreen;
 @end
 
 @interface VideoPlayerView: UIView
+@property (nonatomic, weak) id<VideoPlayerDelegate> delegate;
 @property(nonatomic) BOOL isFullScreen;
 @property(nonatomic) BOOL isPlay;
 @property(nonatomic) CGFloat sumTime;

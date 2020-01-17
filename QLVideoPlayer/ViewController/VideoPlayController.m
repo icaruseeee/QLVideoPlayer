@@ -9,7 +9,7 @@
 #import "VideoPlayController.h"
 #import "VideoPlayerView+Delegate.h"
 
-@interface VideoPlayController ()
+@interface VideoPlayController ()<VideoPlayerDelegate>
 @property (nonatomic, strong) AVPlayer *player;
 @end
 
@@ -34,9 +34,14 @@
     }
     
     VideoPlayerView *vpView = [[VideoPlayerView alloc] initWithFrame:CGRectMake(0, videoHeight, ScreenWidth, NavHeight + self.view.bounds.size.width * 9/16)];
+    vpView.delegate = self;
     [vpView loadWithPlayer:_playerItem];
     self.view = vpView;
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)videoPlayerView:(nonnull VideoPlayerView *)videoPlayerView clickFullScreenBtn:(BOOL)isFullScreen {
+    NSLog(@"full screen clicked");
 }
 
 @end
